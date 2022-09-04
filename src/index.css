@@ -11,3 +11,36 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.logo-font {
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.5rem;
+  color:#e7dede;
+
+}
+
+
+@media(max-width:742px) {
+
+  .ml-title {
+  margin-right:85px ;
+  font-size: 2.1rem;
+
+  }
+
+
+  
+}
+
+
+.event:hover { /* this for events*/
+  box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+  cursor:pointer;
+}
+i {
+  color: #9ABC66;
+  font-size: 100px;
+  line-height: 200px;
+  
+}
+

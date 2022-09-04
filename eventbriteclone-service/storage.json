@@ -1,0 +1,18 @@
+{
+    "usersTable":[
+    {
+      "PutRequest":{
+        "Item":{
+            "text": { "S":  "Shower chairs"}
+          }
+        }
+      },
+    {
+      "PutRequest":{
+        "Item":{
+            "text": { "S":  "Shower chairs"}
+          }
+        }
+      }
+    ]
+  }

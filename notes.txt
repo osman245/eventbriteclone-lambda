@@ -1,0 +1,58 @@
+
+Using serverless framework, we run several functions, giving them  roles and a
+database.
+
+we run everything offline in this application..
+
+
+Just trying to figure out whats outdated in the app...
+this code is from 2 years ago
+
+
+https://dynobase.dev/dynamodb-errors/unable-to-start-dynamodb-local-process/
+(for errors revolving around dynamo db local installage)
+
+install plugins, along with "npm installd dynamodb , to get the local database up and running..
+
+
+
+This is a full stack application. I am using reactjs for its frontend and i am running the backend on lambda using the serverless framework...
+we preconfigure some events using the seeding plugin on dynamodb local.
+
+
+new update.. instead of using springboot framework for my backend. I use the serverless framework so deploy my application locally...
+in the serverless framework I can run many functions, use services on dynamodb such as the creation of tables, insertion/deletion of data using rest api.
+I deployed the aws database dynamodb locally.
+
+
+
+
+
+id: event.id,
+      quantity: event.quantity,
+      email: event.email,
+      fName: event.fName,
+      lName: event.lName,
+      address: event.address,
+      country: event.country,
+      province: event.province,
+      zip: event.zip,
+      nameOnCard: event.nameOnCard,
+      cardNumber: event.cardNumber,
+      expiration: event.expiration,
+      cvv: event.cvv,
+    },
+  };
+
+
+174019 (λ: getEvent)
+× Unhandled exception in handler 'getEvent'.
+× data is not defined
+× ReferenceError: data is not defined   
+->this is because when you use get, an event is invoked to get the info, we need to use event keyword..
+
+
+MissingRequiredParameter: Missing required key 'Key' in params
+
+
+

@@ -1,0 +1,92 @@
+	
+
+[
+     {
+        "id": "123e4567-e89b-12d3-a456-426614174010",
+        "name": "FoodFest",
+        "date": "2022-12-11",
+        "eventDesc": "Come join us on our 44th year anniversary of FoodFest Toronto!. We have a notoriety of choices of food from different cultures around the globe. Its time for the celebration of foods from all around the world.Tickets starting at 8 dollars",
+        "pricePerTicket":"8",
+        "imageUrl": "https://warsamestorages.s3.us-east-2.amazonaws.com/foodfest.jpg"
+
+    },
+    {
+        "id": "123e4567-e89b-12d3-a456-426614174310",
+        "name": "Fantasy Fair",
+        "date": "2022-12-12",
+        "eventDesc": "Ontario’s Largest Indoor Amusement Park and has served over eight million guests since first opening in 1985. Fantasy Fair also offers birthday parties, educational fun and group visits year-round",
+        "pricePerTicket":"11",
+        "imageUrl": "https://warsamestorages.s3.us-east-2.amazonaws.com/fantasyfairr.jpg"
+
+    },
+    {
+        "id": "123e4567-e89b-12d3-a456-426664174010",
+        "name": "Vegan for Beginners Workshop",
+        "date": "2023-01-25",
+        "eventDesc": "More and more people are interested in vegan/plant-based eating. Some are just curious, some want to get their feet wet, and some are ready to come to the V-side!Come Join us as we do a workshop in Vegan cooking",
+        "pricePerTicket":"5",
+        "imageUrl": "https://warsamestorages.s3.us-east-2.amazonaws.com/vegan.jpg"
+
+    },
+    {
+        "id": "123e4567-e89b-12d3-a456-426614174011",
+        "name": "Introduction to Tai Chi",
+        "date": "2023-03-25",
+        "eventDesc": "Training to help you develop a wide range of skills which will enhance both your health and your practice. We practices basic Tai Chi skills as posting, walking, breathing, stretching, energy work, bone tapping and hand movements.",
+        "pricePerTicket":"8",
+        "imageUrl": "https://warsamestorages.s3.us-east-2.amazonaws.com/foodfest.jpg"
+
+    },
+    {
+        "id": "123e4567-e89b-12d3-a456-426614174012",
+        "name": "Health And Happiness",
+        "date": "2022-11-22",
+        "eventDesc": "The Art of Living brings you this free holistic and integrated workshop called the Health and Happiness which provide unique tools and techniques which help combat stress accumulated in our daily life",
+        "pricePerTicket":"5",
+        "imageUrl": "https://warsamestorages.s3.us-east-2.amazonaws.com/happiness.jpg"
+
+    },{
+        "id": "123e4567-e89b-12d3-a456-4266141740102",
+        "name": "Art of Erasure",
+        "date": "2023-06-10",
+        "eventDesc": "A look at how rubbing out, drawing over, tearing, smudging, folding, screwing up, burning, poking holes through and nearly completely destroying your work is a well used method of many artists!",
+        "pricePerTicket": "7",
+        "imageUrl": "https://warsamestorages.s3.us-east-2.amazonaws.com/art.jpg"
+
+    },
+    {
+        "id": "123e4567-e89b-12d3-a456-4266141740103",
+        "name": "Tech Fair",
+        "date": "2023-11-05",
+        "eventDesc": "We will be hosting a Tech Career Fair with our hiring partners from fast growing startups and Fortune 500 companies in technology in the US/Canada.",
+        "pricePerTicket":"11",
+        "imageUrl": "https://warsamestorages.s3.us-east-2.amazonaws.com/techfair.jpg"
+
+    },
+    {
+        "id": "123e4567-e89b-12d3-a456-4266141740104",
+        "name": "TED TALK X Toronto",
+        "date": "2023-12-05",
+        "eventDesc": "Join us for an event that will continue our mission of bringing fresh ideas from some of the boldest community leaders, innovators, and trailblazers in Toronto  and beyond.",
+        "pricePerTicket":"15",
+        "imageUrl": "https://warsamestorages.s3.us-east-2.amazonaws.com/tedtalk.jpg"
+
+    },
+    {
+        "id": "123e4567-e89b-12d3-a456-426614174019",
+        "name": "Knee Pain Exercise Workshop",
+        "date": "2023-12-05",
+        "eventDesc": "If you or a loved one is experiencing hip or knee pain, you won't want to miss this special event. This is an interactive workshop where you will perform the exercises while sitting at your computer.",
+        "pricePerTicket":6,
+        "imageUrl": "https://warsamestorages.s3.us-east-2.amazonaws.com/kneepain.jpg"
+
+    },{
+    "id":"123e4567-e89b-12d3-a456-436614274010",
+    "name":"Santa Claus Parade",
+    "date":"2022-20-10",
+    "eventDesc":"The Santa Claus Parade has kicked off the Christmas season, then for the whole country as it has grown in popularity and importance throughout the years.",
+    "pricePerTicket":"0",
+    "imageUrl": "https://warsamestorages.s3.us-east-2.amazonaws.com/santaparade.jpg"
+    }
+    
+]

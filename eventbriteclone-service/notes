@@ -1,0 +1,12 @@
+endpoint:
+
+https://6sq26js84k.execute-api.us-east-1.amazonaws.com/dev/candidates
+server:
+
+cURL is a computer software project providing a library and command-line tool for transferring data using various network protocols. The name stands for "Client URL"
+
+aws dynamodb batch-write-item --request-items file://Reply.json
+
+To write a json file to the dynamodb database...
+
+creating this project to run my frontend eventbrite application on to lambda...

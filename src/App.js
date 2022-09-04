@@ -1,24 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React, { useEffect } from "react";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { HomePage } from "./pages/HomePage";
+import { AddEventsPage } from "./pages/AddEventsPage";
+import { AddConfirmPage } from "./pages/AddConfirmPage";
+import { BuyConfirmPage } from "./pages/BuyConfirmPage";
+import { BuyTicketPage } from "./pages/BuyTicketPage";
+import { Navbar } from "./components/Navbar";
+import "bootstrap";
+import "tachyons";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    //pattern: Specifies a regular expression that defines a pattern the entered data needs to follow.implement this in eventForm..
+    <>
+      <Router>
+        <Navbar />
+        <Switch>
+          <Route path="/" exact>
+            <HomePage />
+          </Route>
+          <Route path="/addEvent">
+            <AddEventsPage />
+          </Route>
+          <Route path="/buyTicketConfirm">
+            <BuyConfirmPage />
+          </Route>
+          <Route path="/addEventConfirm">
+            <AddConfirmPage />
+          </Route>
+          <Route path="/userticket/:id">
+            <BuyTicketPage />
+          </Route>
+        </Switch>
+      </Router>
+    </>
   );
 }
 
