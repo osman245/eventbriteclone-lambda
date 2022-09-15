@@ -1,5 +1,6 @@
 "use strict";
-
+//change everything to online, online dynamodb and online aws.... read some github slides talking about...
+// theres an issue with serverlesss offline services..
 const AWS = require("aws-sdk"); // eslint-disable-line import/no-extraneous-dependencies
 
 const dynamoDb = new AWS.DynamoDB.DocumentClient({

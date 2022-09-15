@@ -22,9 +22,10 @@ export const AddEventsPage = () => {
     var formData = new FormData();
     var imageFile = document.querySelector("#file");
     formData.append("file", imageFile.files[0]);
+    console.log(imageFile.files[0]);
 
     axios
-      .put("http://localhost:3000/dev/todos", formData, {
+      .put("http://localhost:3000/dev/todos/upload", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -37,7 +38,7 @@ export const AddEventsPage = () => {
   const handleSubmit = (e) => {
     axios({
       method: "post",
-      url: "http://localhost:3000/dev/todos",
+      url: "http://localhost:3000/dev/todos/event",
       data: data,
     }).then(() => {
       console.log("new data");
@@ -56,7 +57,7 @@ export const AddEventsPage = () => {
       <div className="d-flex align-content-center justify-content-center mx-5 my-5">
         <div className="   card text-dark  p-3">
           <div className="card-body">
-            <h3 className="card-title text-center"> Create Event</h3>
+            <h3 className="card-title text-center">Create Event</h3>
             <hr className="w-50" />
 
             <form onSubmit={imageSubmit}>
@@ -116,7 +117,6 @@ export const AddEventsPage = () => {
                 <select
                   value={pricePerTicket}
                   onChange={(e) => {
-                    console.log();
                     setPricePerTicket(e.target.value);
                   }}
                   className="form-select ml-3 mt-2"

@@ -4,7 +4,7 @@ import { useFetch } from "../components/useFetch";
 
 export const HomePage = () => {
   const { error, data, isPending } = useFetch(
-    "http://localhost:3000/dev/todos/"
+    "http://localhost:3000/dev/todos/event"
   );
 
   return (

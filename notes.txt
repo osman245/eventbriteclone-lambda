@@ -56,3 +56,50 @@ MissingRequiredParameter: Missing required key 'Key' in params
 
 
 
+First we make sure we create credientials so we have programmatic access to aws through IAM
+then we install the serverless framework, we use a starter template...
+serverless uses cloudfromation template..
+define the iam role your lambda function will use to get access to s3...
+
+
+We can do rest api on serverless, but what is rest api...(representational state transfer)
+
+
+Server(exposes services)
+Client sends http requests to  endpoints to talk to the services...
+Http requests have a http method to tell you what its goal is.
+frontend or app is the client, needs to talk to the server or backend to get or save data.
+
+
+When we create an event, we go to the UI and click addevent on the navbar, we enter our information.
+When the info is entered we press submit, this submit buttons sends us to the confirmation page...
+
+Behind the scenes, when the button is submitted, two post requests happen, one to the upload endpoint, which handles the data and saves data in the bucket.
+the other posts all the events data to the / endpoint...
+
+the usefetch function is invoked because new data has entered its endpoint... a get request is called to the endpoint to get its data from dynamodb
+Thus the homepage is rendered and the new event is displayed.
+
+frontend or app is the client, needs to talk to the server or backend to get or save data.
+
+methods:intentions....
+
+
+Today i was tackling, using s3 upload on my application...
+
+i learned about how event processes its data...
+since file info is stored in a boundary.. we need to use parse and the element split.. to get the value..
+
+need to reload serverless to get its values..
+
+Sometimes you only have access to the raw multipart payload and it needs to be parsed in order to extract the files or data contained on it. As an example: the Amazon AWS ApiGateway, which will operate as a facade between the http client and your component (the one written by you designed to
+ extract the uploaded files or data).
+
+ he JSON.stringify() method converts a JavaScript value to a JSON string
+
+
+ the process of converting a JSON object in text format to a Javascript object that can be used inside a program
+ 
+ Serverless IAM Roles Per Function
+Serverless Plugin for easily defining IAM roles per function via the use of iamRoleStatements
+Can specify roles per function.... 

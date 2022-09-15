@@ -23,7 +23,7 @@ export const BuyTicketPage = () => {
   const [count, setCount] = useState(0);
   const { id } = useParams();
 
-  const url = `http://localhost:3000/dev/todos/` + id;
+  const url = `http://localhost:3000/dev/todos/event/` + id;
 
   const { data, error, isPending } = useFetch(url);
   const history = useHistory();

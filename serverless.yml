@@ -4,11 +4,16 @@ service: serverless-rest-api-with-dynamodb
 provider:
   name: aws
   stage: dev
-  region: local
+  region: us-east-2
   runtime: nodejs16.x
+  apiGateway:
+    binaryMediaTypes:
+      - '*/*' ##API Gateway passes the binary files as base64 encoded, so you’ll need to decode from base64 before passing the body to parse-multipart.
   environment:
     DYNAMODB_TABLE: test
     DYNAMODB_TABLE_USERTICKET: testUserticket
+    DYNAMODB_TABLE_IMAGE: testUpload
+    BUCKET: warsamestorages
   iam:
     role:
       statements:
@@ -20,17 +25,22 @@ provider:
             - dynamodb:PutItem
             - dynamodb:UpdateItem
             - dynamodb:DeleteItem
+
           Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.DYNAMODB_TABLE}"
 plugins:
   - serverless-dynamodb-local
   - serverless-offline
+  - serverless-plugin-include-dependencies
+  - serverless-plugin-common-excludes
+  - serverless-iam-roles-per-function
 
 custom:
+  profile:
+    dev: default
   dynamodb:
     stages:
       - ${self:provider.stage}
     start:
-      docker:
       port: 8000
       seed: true
       sharedDb: true
@@ -45,21 +55,21 @@ functions:
     handler: todos/createEvent.create
     events:
       - http:
-          path: todos
+          path: todos/event
           method: post
           cors: true
   listEvents:
     handler: todos/listEvents.list
     events:
       - http:
-          path: todos
+          path: todos/event
           method: get
           cors: true
   getEvent:
     handler: todos/getEvent.get
     events:
       - http:
-          path: todos/{id}
+          path: todos/event/{id}
           method: get
           cors: true        
   buyTicket:
@@ -75,9 +85,38 @@ functions:
       - http:
           path: todos/userticket
           method: get
-          cors: true          
+          cors: true	
+  upload:
+    handler: todos/upload.upload
+    events:
+      - http:
+          path: todos/upload
+          method: put
+          cors: true
+    memorySize: 512 # optional, in MB, default is 1024
+    timeout: 10 # 
+    iamRoleStatements:
+      - Effect: Allow
+        Action:
+         - "s3:Put*"
+         - "s3:Get*" 
+        Resource: arn:aws:s3:::warsamestorages/*
+  uploadget:
+    handler: todos/uploadget.upload
+    events:
+      - http:
+          path: todos/upload
+          method: get
+          cors: true              
+
+                             
 resources:
   Resources:
+    WarsameStorages:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: warsamestorages
+        AccessControl: PublicRead
     TodosDynamoDbTable:
       Type: 'AWS::DynamoDB::Table'
       DeletionPolicy: Retain
@@ -109,57 +148,20 @@ resources:
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
-        TableName: testUserticket      
-   
-
-
-
-# get:
-  #   handler: todos/get.get
-  #   events:
-  #     - http:
-  #         path: todos/{id}
-  #         method: get
-  #         cors: true
-  # get1:
-  #   handler: todos/get1.get1
-  #   events:
-  #     - http:
-  #         path: todos/userticket/{id}
-  #         method: get
-  #         cors: true
-
-
-
-
-
-
-
-
-
-    # TodosDynamoDbTableUserTicket:
-    #   Type: 'AWS::DynamoDB::Table'
-    #   DeletionPolicy: Retain
-    #   Properties:
-    #     AttributeDefinitions:
-    #       -
-    #         AttributeName: id
-    #         AttributeType: S
-    #     KeySchema:
-    #       -
-    #         AttributeName: id
-    #         KeyType: HASH
-    #     ProvisionedThroughput:
-    #       ReadCapacityUnits: 1
-    #       WriteCapacityUnits: 1
-    #     TableName: testUserticket       
-   
-
-
-    # create1:
-  #   handler: todos/create1.create1
-  #   events:
-  #     - http:
-  #         path: todos/userticket
-  #         method: post
-  #         cors: true  
+        TableName: testUserticket
+    TodosDynamoDbTableImage:
+      Type: 'AWS::DynamoDB::Table'
+      DeletionPolicy: Retain
+      Properties:
+        AttributeDefinitions:
+          -
+            AttributeName: id
+            AttributeType: S
+        KeySchema:
+          -
+            AttributeName: id
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        TableName: testImage              
