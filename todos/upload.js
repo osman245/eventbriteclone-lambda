@@ -5,8 +5,8 @@ const multipart = require("parse-multipart-data");
 
 const s3 = new AWS.S3({
   region: "us-east-2",
-  // accessKeyId: "AKIAZ2EVJG5IJROWKRRC",
-  // secretAccessKey: "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",
+  // accessKeyId: "",
+  // secretAccessKey: "/OVZQZ7aAP",
 });
 
 module.exports.upload = async (event) => {
