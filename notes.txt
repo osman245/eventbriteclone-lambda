@@ -102,4 +102,28 @@ Sometimes you only have access to the raw multipart payload and it needs to be p
  
  Serverless IAM Roles Per Function
 Serverless Plugin for easily defining IAM roles per function via the use of iamRoleStatements
-Can specify roles per function.... 
+Can specify roles per function....
+
+
+we have diff stages so we can decipher what aws acc to use for dev and prod..
+
+
+
+
+
+
+
+currently switching local deployment to global deployment.....
+changing db from local to global database..
+changed endpoints ...
+
+dynamodb is a key value pair type database...
+
+
+
+having troubles with uploading files locally and globally with lambda lets try express..found another way...
+
+used express, then used a npm library that helps integrate express with serverless framework... 
+
+
+/dev/todos/upload

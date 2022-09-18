@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="serverless-rest-api-with-dynamodb">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/.serverless/serverless-rest-api-with-dynamodb.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

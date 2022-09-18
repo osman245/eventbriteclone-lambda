@@ -6,6 +6,12 @@ For an overview of DynamoDB Local please refer to the documentation at http://do
 
 Release Notes
 -----------------------------
+2022-9-12 (1.20.0)
+
+* Fixed path traversal issue
+* Updated Jetty dependency to 9.4.48.v20220622
+* Added M1 support
+
 2022-7-27 (1.19.0)
 
  * Updated  IonSQLSandbox dependency to version 6.x

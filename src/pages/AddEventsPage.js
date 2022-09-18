@@ -30,8 +30,7 @@ export const AddEventsPage = () => {
           "Content-Type": "multipart/form-data",
         },
       })
-      .then((response) => setImageUrl(response.data.publicUrl));
-    console.log("imageUrl:" + imageUrl);
+      .then((response) => console.log(setImageUrl(response.data.publicUrl)));
     setTimeout(handleSubmit(e), 2000);
   };
 

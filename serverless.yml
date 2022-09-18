@@ -30,10 +30,7 @@ provider:
 plugins:
   - serverless-dynamodb-local
   - serverless-offline
-  - serverless-plugin-include-dependencies
-  - serverless-plugin-common-excludes
-  - serverless-iam-roles-per-function
-
+  - serverless-s3-local
 custom:
   profile:
     dev: default
@@ -86,30 +83,13 @@ functions:
           path: todos/userticket
           method: get
           cors: true	
-  upload:
-    handler: todos/upload.upload
+  app:
+    handler: upload.handler
     events:
       - http:
           path: todos/upload
           method: put
-          cors: true
-    memorySize: 512 # optional, in MB, default is 1024
-    timeout: 10 # 
-    iamRoleStatements:
-      - Effect: Allow
-        Action:
-         - "s3:Put*"
-         - "s3:Get*" 
-        Resource: arn:aws:s3:::warsamestorages/*
-  uploadget:
-    handler: todos/uploadget.upload
-    events:
-      - http:
-          path: todos/upload
-          method: get
-          cors: true              
-
-                             
+          cors: true	                                   
 resources:
   Resources:
     WarsameStorages:
@@ -164,4 +144,8 @@ resources:
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
-        TableName: testImage              
+        TableName: testImage           
+
+
+
+        
