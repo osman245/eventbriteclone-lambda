@@ -5,7 +5,7 @@ const AWS = require("aws-sdk"); // eslint-disable-line import/no-extraneous-depe
 
 const dynamoDb = new AWS.DynamoDB.DocumentClient({
   region: "localhost",
-  endpoint: "http://localhost:8000",
+  endpoint: process.env.DATABASE_URL,
 });
 //every post gets redirected to this.
 module.exports.buy = (event, context, callback) => {

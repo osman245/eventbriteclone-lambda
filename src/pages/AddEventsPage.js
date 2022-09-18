@@ -1,6 +1,4 @@
 import { useState } from "react";
-import axios from "axios";
-import { useFetch } from "../components/useFetch";
 import FormData from "form-data";
 import React from "react";
 import { useHistory } from "react-router-dom";

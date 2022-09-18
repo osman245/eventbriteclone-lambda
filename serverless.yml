@@ -14,6 +14,10 @@ provider:
     DYNAMODB_TABLE_USERTICKET: testUserticket
     DYNAMODB_TABLE_IMAGE: testUpload
     BUCKET: warsamestorages
+    ACCESS_ID: "S3RVER"
+    SECRET_KEY: "S3RVER"
+    S3OFFLINE_URL: "http://localhost:4569"
+    DATABASE_URL: "http://localhost:8000"
   iam:
     role:
       statements:
@@ -84,7 +88,7 @@ functions:
           method: get
           cors: true	
   app:
-    handler: upload.handler
+    handler: todos/upload.handler
     events:
       - http:
           path: todos/upload
@@ -95,7 +99,7 @@ resources:
     WarsameStorages:
       Type: AWS::S3::Bucket
       Properties:
-        BucketName: warsamestorages
+        BucketName: ${self:provider.environment.BUCKET}
         AccessControl: PublicRead
     TodosDynamoDbTable:
       Type: 'AWS::DynamoDB::Table'
@@ -112,7 +116,7 @@ resources:
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
-        TableName: test
+        TableName: ${self:provider.environment.DYNAMODB_TABLE}
     TodosDynamoDbTableUserTicket:
       Type: 'AWS::DynamoDB::Table'
       DeletionPolicy: Retain
@@ -128,7 +132,7 @@ resources:
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
-        TableName: testUserticket
+        TableName: ${self:provider.environment.DYNAMODB_TABLE_USERTICKET}
     TodosDynamoDbTableImage:
       Type: 'AWS::DynamoDB::Table'
       DeletionPolicy: Retain
@@ -144,7 +148,7 @@ resources:
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
-        TableName: testImage           
+        TableName: ${self:provider.environment.DYNAMODB_TABLE_IMAGE}     
 
 
 

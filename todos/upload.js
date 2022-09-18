@@ -6,33 +6,30 @@ require("dotenv").config();
 
 const app = express();
 
-const PORT = 3001;
-
 // using upload middleware
 app.use(fileUpload());
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
 // s3 config
 const s3 = new AWS.S3({
   s3ForcePathStyle: true,
-  accessKeyId: "S3RVER", // This specific key is required when working offline
-  secretAccessKey: "S3RVER",
-  endpoint: new AWS.Endpoint("http://localhost:4569"),
+  accessKeyId: process.env.ACCESS_ID,
+  secretAccessKey: process.env.SECRET_KEY,
+  endpoint: new AWS.Endpoint(process.env.S3OFFLINE_URL),
 });
 
 // actual function for uploading file
 async function uploadFile(file) {
   let key = `${file.file.name}`;
   const params = {
-    Bucket: "warsamestorages", // bucket you want to upload to
+    Bucket: process.env.BUCKET, // bucket you want to upload to
     Key: key, // put all image to fileupload folder with name scanskill-${Date.now()}${file.name}`
     Body: file.file.data,
     ACL: "public-read",
     ContentType: "*/*",
   };
   const data = await s3.upload(params).promise();
-  return key; // returns the url location
+  return data; // returns the url location
 }
 
 app.put("/todos/upload", async (req, res) => {
